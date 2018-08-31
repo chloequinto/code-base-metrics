@@ -134,14 +134,14 @@ write.table(data.frame(unlist(calculations_2014_2)), append = TRUE, file="C:/Use
 d.2015_2 <- read_django_1.9$V2
 r.2015_2 <- read_r_4_2$V2
 calculations_2015_2<-t.test(d.2015_2,r.2015_2,var.equal = FALSE)
-write.table(data.frame(unlist(calculations_2015_2)), append = TRUE, file="C:/Users/Chloe Quinto/Desktop/Cleaned up files/NLOC/all_nloc.tsv", sep="\t", col.names = T, row.names = T)
+write.table(data.frame(unlist(calculations_2015_2)), append = TRUE, file="C:/Users/Chloe Quinto/Desktop/Cleaned up files/CCN/all_ccn.tsv", sep="\t", col.names = T, row.names = T)
 
 
 #2016 Calculations
 d.2016_2 <- read_django_1.10$V2
 r.2016_2 <- read_r_5_0$V2
 calculations_2016_2 <- t.test(d.2016_2, r.2016_2, var.equal = FALSE)
-write.table(data.frame(unlist(calculations_2016_2)), append = TRUE, file="C:/Users/Chloe Quinto/Desktop/Cleaned up files/NLOC/all_nloc.tsv", sep="\t", col.names = T, row.names = T)
+write.table(data.frame(unlist(calculations_2016_2)), append = TRUE, file="C:/Users/Chloe Quinto/Desktop/Cleaned up files/CCN/all_ccn.tsv", sep="\t", col.names = T, row.names = T)
 
 
 #Calculate the T-Tests for Unequal Variances - NLOC 
