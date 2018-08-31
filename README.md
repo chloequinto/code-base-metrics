@@ -5,3 +5,4 @@
 - **NLOC** - contains the t-test for NLOC
 - **TOKEN** - contains the t-test for TOKEN
 - **clean_django_rails.R** - program to clean, read, and write and t-tests
+- **sum_of_metrics.xlsx** - table of t, p-val, diff for CCN, NLOC, TOKEN
