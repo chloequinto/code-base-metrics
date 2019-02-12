@@ -3,24 +3,47 @@
 library(readxl)
 
 
-setwd("/Users/chloequinto/Documents/code-base-metrics")
-### AVERAGE NLOC ###
+setwd("/Users/chloequinto/Documents/code-base-metrics/input results")
 
-DATA_D <- read_excel("t_test.xlsx", sheet = "Django") 
-DATA_R <- read_excel("t_test.xlsx", sheet = "Ruby")
-
-AVG_NLOC <- t.test(DATA_D$NLOC, DATA_R$NLOC, var.equal = FALSE)
-write.table(data.frame(unlist(AVG_NLOC)), append = TRUE, file = "results_NLOC.csv", col.names = TRUE, row.names = TRUE)
+d.1.6 <- read.csv("d_1.6.csv", header= FALSE)
+#V5 is function count 
+#V7 is the file 
 
 
-AVG_CNN <- t.test(DATA_D$CNN, DATA_R$CNN, var.equal = FALSE)
-write.table(data.frame(unlist(AVG_CNN)), append = TRUE, file = "results_CNN.csv", col.names = TRUE, row.names = TRUE)
+myContain <- list()
+run <- sequence(rle(as.character(d.1.6$V7))$lengths)
+values <- unique(d.1.6$V7)
+for(i in values){ 
+  for (b in run){ 
+    while(b != 1){
+      myContain[i] <- b
+      }
+    }
+  
+}
 
-AVG_FN <- t.test(DATA_D$Fun, DATA_R$Fun, var.equal = FALSE)
-write.table(data.frame(unlist(AVG_FN)), append = TRUE, file = "results_FN.csv", col.names = TRUE, row.names = TRUE)
 
-AVG_WRN <- t.test(DATA_D$Wrn, DATA_R$Wrn, var.equal = FALSE)
-write.table(data.frame(unlist(AVG_WRN)), append = TRUE, file = "results_WRN.csv", col.names = TRUE, row.names = TRUE)
-
-
-head(AVG_NLOC)
+num = 0
+for (i in d.1.6$V7){ 
+  if (d.1.6$V7[i] == d.1.6$V7[i+1]){
+    myContain[i] <- num
+    num = num + 1
+  }
+  else { 
+    num = 0
+    myContain[i] <- num
+    }
+}
+count = 0
+run <- sequence(rle(as.character(d.1.6$V7))$lengths)
+for (i in run){
+  while(i != 1){
+    myContain[d.1.6$V7] <- i  
+    }
+}
+head(unique(d.1.6$V7))
+View(run)
+write.table(run, "d.1.6_results.txt")
+write.table(unique(d.1.6$V7), "d.1.6_res.txt" )
+really <- table(d.1.6$V7)
+head(really)
