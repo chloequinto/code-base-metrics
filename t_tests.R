@@ -21,8 +21,13 @@ r.4.1 <- read.csv("rails_4.1.csv", header = FALSE)
 r.4.2 <- read.csv("rails_4.2.csv", header = FALSE)
 r.5.0 <- read.csv("rails_5.0.csv", header = FALSE)
 
-d.1.10_w <- read.csv("django_1.10_warning.csv", header = FALSE)
-head(d.1.10_w$V2)
+############### Warnings Count Only ###################
+setwd("/Users/chloequinto/Documents/code-base-metrics/input results/warnings_cleaned")
+d.1.3.w <- read.csv("d.1.3.w.csv", header = FALSE)
+
+
+r.3.1.w <- read.csv("r.3.1.w.csv", header = FALSE)
+
 
 #V1 -> LOC
 #V2 -> NLOC
@@ -40,10 +45,10 @@ head(d.1.3)
 
 ############ CALCULATIONS ############## 
 # 2011 Calculations 
-d.2011_FUNC <- d.1.3$V5
-r.2011_FUNC <- r.3.1$V5
-FUNC_2011<-t.test(d.2011_FUNC,r.2011_FUNC,var.equal = FALSE)
-write.table(data.frame(unlist(FUNC_2011)), append = TRUE, file="/Users/chloequinto/Documents/code-base-metrics/Results/FUNC_2011.txt", sep="\t", col.names = T, row.names = T)
+d.2011_WRN <- d.1.3.w$V2
+r.2011_WRN <- r.3.1.w$V2
+WRN_2011<-t.test(d.2011_WRN ,r.2011_WRN,var.equal = FALSE)
+write.table(data.frame(unlist(WRN_2011)), append = TRUE, file="/Users/chloequinto/Documents/code-base-metrics/Results/WRN_2011.txt", sep="\t", col.names = T, row.names = T)
 
 
 # 2012 Calculations 
